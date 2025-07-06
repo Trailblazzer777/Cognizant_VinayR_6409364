@@ -1,0 +1,29 @@
+Spring Data JPA
+Type: Spring Module (Abstraction over JPA)
+
+Implements: Nothing directly — instead, it leverages an existing JPA implementation like Hibernate.
+
+Key Features:
+
+Eliminates boilerplate code by using JpaRepository interfaces.
+
+Automatically handles sessions, transactions, and entity management.
+
+Built-in support for CRUD, pagination, sorting, and query derivation from method names.
+
+Primary Advantage: Rapid development with minimal code.
+
+
+
+
+// Repository Interface
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {}
+
+// Service Layer
+@Autowired
+private EmployeeRepository employeeRepository;
+
+@Transactional
+public void addEmployee(Employee employee) {
+    employeeRepository.save(employee);
+}
